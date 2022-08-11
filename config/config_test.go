@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/matansh/envloader/config"
-	"github.com/matansh/envloader/errs"
+	"github.com/matansh/enver/config"
+	"github.com/matansh/enver/errs"
 )
 
 func TestLoadEnv(t *testing.T) {

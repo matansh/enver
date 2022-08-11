@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/matansh/envloader/errs"
-	"github.com/matansh/envloader/internal"
+	"github.com/matansh/enver/errs"
+	"github.com/matansh/enver/internal"
 )
 
 const defaultStructTag = "env"

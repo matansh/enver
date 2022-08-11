@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/matansh/envloader/errs"
+	"github.com/matansh/enver/errs"
 )
 
 const (

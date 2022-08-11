@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/matansh/envloader/internal"
+	"github.com/matansh/enver/internal"
 )
 
 // setting this test up as a table test requires nasty reflections.

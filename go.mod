@@ -1,3 +1,3 @@
-module github.com/matansh/envloader
+module github.com/matansh/enver
 
 go 1.19

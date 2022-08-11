@@ -2,7 +2,7 @@
 
 ## Usage
 ```go
-import github.com/matansh/envloader
+import github.com/matansh/enver
 
 type Config struct {
 	LogLevel          string `env:"LOG_LEVEL"`
