@@ -2,7 +2,7 @@
 
 ## Usage
 ```go
-import github.com/matansh/enver
+import "github.com/matansh/enver/config"
 
 type Config struct {
 	LogLevel          string `env:"LOG_LEVEL"`
@@ -12,11 +12,13 @@ type Config struct {
 	ImplicitlyIgnored string           // untagged struct fields will be ignored
 }
 
-var cfg Config
-
-errs := config.LoadEnv(&cfg)
-if len(errs) != 0 {
-    // failed to load config
+func main() {
+	var cfg Config
+	
+	errs := config.LoadEnv(&cfg)
+	if len(errs) != 0 {
+		// failed to load config
+	}
 }
 ```
 
