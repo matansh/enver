@@ -1,4 +1,5 @@
-# A Go(lang) configuration library developed by @matansh.
+# enver
+A Go(lang) configuration library.
 
 ## Usage
 ```go
