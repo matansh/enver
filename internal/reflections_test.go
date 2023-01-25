@@ -29,6 +29,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 		InnerFloat64 float64       `testTag:"INNER_FLOAT64"`
 		InnerBool    bool          `testTag:"INNER_BOOL"`
 		InnerTimeout time.Duration `testTag:"INNER_TIMEOUT"`
+		InnerArrStr  []string      `testTag:"INNER_ARR_STR"`
 	}
 	type config struct {
 		Str     string        `testTag:"STR"`
@@ -46,6 +47,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 		Float64 float64       `testTag:"FLOAT64"`
 		Bool    bool          `testTag:"BOOL"`
 		Timeout time.Duration `testTag:"TIMEOUT"`
+		ArrStr  []string      `testTag:"ARR_STR"`
 		Inner   innerConfig
 	}
 	testData := map[string]string{
@@ -64,6 +66,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 		"FLOAT64":       fmt.Sprint(float64(1.2)),
 		"BOOL":          fmt.Sprint(true),
 		"TIMEOUT":       "1m",
+		"ARR_STR":       "first,second, third",
 		"INNER_STR":     "\"inner test\"",
 		"INNER_INT":     fmt.Sprint(int(13)),
 		"INNER_INT8":    fmt.Sprint(int8(14)),
@@ -79,6 +82,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 		"INNER_FLOAT64": fmt.Sprint(float64(24.7)),
 		"INNER_BOOL":    fmt.Sprint(false),
 		"INNER_TIMEOUT": "10",
+		"INNER_ARR_STR": "fourth,fifth, sixth",
 	}
 	// setting data into env
 	for key, value := range testData {
@@ -108,6 +112,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 		Float64: float64(1.2),
 		Bool:    true,
 		Timeout: time.Minute,
+		ArrStr:  []string{"first", "second", "third"},
 		Inner: innerConfig{
 			InnerStr:     "inner test",
 			InnerInt:     int(13),
@@ -124,6 +129,7 @@ func TestPopulateStructFromEnv(t *testing.T) {
 			InnerFloat64: float64(24.7),
 			InnerBool:    false,
 			InnerTimeout: time.Second * 10,
+			InnerArrStr:  []string{"fourth", "fifth", "sixth"},
 		},
 	})
 	if !isEqual {

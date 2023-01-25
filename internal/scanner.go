@@ -91,6 +91,13 @@ func scanFieldFromEnv(fieldValue reflect.Value, envVar string) error {
 		}
 		fieldValue.SetFloat(floatVal)
 
+	case reflect.Slice:
+		// possibly `[1,2, 3]` or `(1,2, 3)` or `1,2, 3`
+		strVal = strings.TrimSuffix(strings.TrimPrefix(strVal, "["), "]")
+		strVal = strings.TrimSuffix(strings.TrimPrefix(strVal, "("), ")")
+		strVal = strings.ReplaceAll(strVal, ", ", ",")
+		fieldValue.Set(reflect.ValueOf(strings.Split(strVal, ",")))
+
 	default:
 		return fmt.Errorf("%w: %s is unsupported", errs.ErrUnsupportedType, fieldValue.Kind())
 	}
